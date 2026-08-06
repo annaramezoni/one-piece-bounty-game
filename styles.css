@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-size: 16px;
+  font-family: "Pirata One", system-ui;
+}
+
+.header {
+  height: 15vh;
+  background-image: url("images/logo.jpeg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+.bg-section {
+  height: 20vh;
+  background-image: url("images/header-2.jpeg");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: unset;
+}
+
+.carousel__title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  gap: 30px;
+}
+.carousel__title > img {
+  height: 50px;
+  width: 50px;
+}
+.carousel__track-container {
+  display: flex;
+  position: relative;
+}
+.carousel__track {
+  width: 310px;
+  height: 480px;
+  display: flex;
+}
+.carousel__slide {
+  list-style: none;
+}
+.carousel__slide > img {
+  width: 310px;
+  height: 480px;
+  cursor: pointer;
+}
+.carousel__slide > img:hover {
+  width: 330px;
+  height: 500px;
+}
+
+.carousel__button {
+  height: 20px;
+  width: 20px;
+  background: none;
+  border: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.carousel__button--right {
+  left: 98%;
+}
