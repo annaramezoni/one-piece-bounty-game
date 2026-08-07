@@ -15,6 +15,7 @@
     <header class="header"></header>
     <section class="bg-section"></section>
     <main>
+      <!-- ========= Carousel ========== -->
       <section class="carousel-section">
         <div class="carousel__title">
           <h2>The Straw Hat Crew</h2>
@@ -58,11 +59,27 @@
               <img src="images/Jinbe.png" />
             </li>
           </ul>
-          <button class="carousel__button carousel__button--right">
+          <button class="carousel__button --right">
             <i class="fa-solid fa-2x fa-chevron-right"></i>
           </button>
         </div>
       </section>
+
+      <!-- ========= Game ========== -->
+      <div class="card-front-back" id="card-front-back" onClick="handleClick()">
+        <!-- ===== front ===== -->
+        <div class="card --front">
+          <div class="card-game">
+            <img src="images/Luffy-front.png" />
+          </div>
+        </div>
+        <!-- ===== back ===== -->
+        <div class="card --back">
+          <div class="card-game">
+            <img src="images/Luffy.png" alt="" />
+          </div>
+        </div>
+      </div>
     </main>
   </body>
 </html>

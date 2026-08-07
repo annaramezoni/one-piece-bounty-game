@@ -69,6 +69,35 @@ body {
   z-index: 1;
 }
 
-.carousel__button--right {
+.carousel__button.--right {
   left: 98%;
 }
+
+/* ========= Game ========== */
+.card-front-back {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 600ms cubic-bezier(0.42, 0, 0.54, 1.68);
+  cursor: pointer;
+}
+.card-front-back img {
+  width: 310px;
+  height: 480px;
+}
+.card-front-back.--active {
+  transform: rotateY(180deg);
+}
+
+.card-front-back > .card {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.card-front-back > .card.--back {
+  transform: rotateY(180deg);
+}
+
+.card-front-back > .card.--back .card-game {
+  background-color: var(--color-fiery-rose);
+}
+/* ===== front ===== */
