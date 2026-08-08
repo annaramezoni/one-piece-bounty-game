@@ -1,5 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Pirata+One&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Pirata+One&display=swap");
+:root {
+  --font-pirata-one: "Pirata One", "Pirata One", system-ui;
+  --font-patrick-hand: "Patrick Hand", cursive;
+}
 * {
   box-sizing: border-box;
   margin: 0;
@@ -17,7 +21,7 @@ body {
   background-position: center;
   background-size: contain;
 }
-.bg-section {
+.bg-header {
   height: 20vh;
   background-image: url("images/header-2.jpeg");
   background-repeat: repeat;
@@ -40,6 +44,7 @@ body {
   position: relative;
   margin-left: auto;
   margin-right: auto;
+  width: 70%;
 }
 .carousel__card-list {
   width: 800px;
@@ -70,12 +75,26 @@ body {
   z-index: 1;
 }
 .carousel__button.--left {
-  left: 15%;
+  left: -1px;
 }
 .carousel__button.--right {
-  right: 15%;
+  right: -1px;
 }
-
+/* charaters name button*/
+.carousel__character-btns {
+  padding: 30px;
+  text-align: center;
+}
+.carousel__character-btns button {
+  font-family: var(--font-patrick-hand);
+  font-size: 1.3rem;
+  background: none;
+  border: none;
+  margin: 10px;
+}
+.carousel__character-btns button:hover {
+  cursor: pointer;
+}
 /* ========= Game ========== */
 .card-front-back {
   position: relative;
