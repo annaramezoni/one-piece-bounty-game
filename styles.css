@@ -3,6 +3,7 @@
 :root {
   --font-pirata-one: "Pirata One", "Pirata One", system-ui;
   --font-patrick-hand: "Patrick Hand", cursive;
+  --color-main-background: rgb(253, 253, 236);
 }
 * {
   box-sizing: border-box;
@@ -12,16 +13,16 @@
 body {
   font-size: 16px;
   font-family: "Pirata One", system-ui;
+  background-color: var(--color-main-background);
 }
 
-.header {
-  height: 15vh;
-  background-image: url("images/logo.jpeg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: contain;
+.header__logo {
+  height: 8vh;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
 }
-.bg-header {
+.header__bg {
   height: 20vh;
   background-image: url("images/header-2.jpeg");
   background-repeat: repeat;
