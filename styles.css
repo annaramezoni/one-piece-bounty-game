@@ -66,14 +66,17 @@ body {
 }
 
 .carousel__button {
-  height: 20px;
-  width: 20px;
+  height: 60px;
+  width: 60px;
   background: none;
   border: none;
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
   z-index: 1;
+}
+.carousel__button:hover {
+  cursor: pointer;
 }
 .carousel__button.--left {
   left: -1px;
@@ -88,13 +91,98 @@ body {
 }
 .carousel__character-btns button {
   font-family: var(--font-patrick-hand);
-  font-size: 1.3rem;
+  font-size: 1rem;
   background: none;
   border: none;
   margin: 10px;
 }
 .carousel__character-btns button:hover {
   cursor: pointer;
+}
+@media screen and (min-width: 2300px) {
+  .carousel__container {
+    width: 35%;
+  }
+}
+@media screen and (min-width: 1885px) {
+  .carousel__container {
+    width: 50%;
+  }
+}
+@media screen and (max-width: 1385px) {
+  .carousel__container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 1385px) {
+  .carousel__card-list,
+  .carousel__card > img {
+    width: 600px;
+    height: 600px;
+  }
+  .carousel__container {
+    width: 75%;
+  }
+}
+@media screen and (max-width: 958px) {
+  body {
+    font-size: 14px;
+  }
+  .header__logo {
+    height: 6vh;
+  }
+  .header__bg {
+    height: 10vh;
+    background-size: contain;
+  }
+  .carousel__card-list,
+  .carousel__card > img {
+    width: 500px;
+    height: 500px;
+  }
+  .carousel__container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 689px) {
+  body {
+    font-size: 13px;
+  }
+  .header__logo {
+    height: 5vh;
+  }
+  .header__bg {
+    height: 10vh;
+    background-size: contain;
+  }
+  .carousel__card-list,
+  .carousel__card > img {
+    width: 350px;
+    height: 350px;
+  }
+  .carousel__container {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 489px) {
+  body {
+    font-size: 13px;
+  }
+  .header__logo {
+    height: 3vh;
+  }
+  .header__bg {
+    height: 6vh;
+    background-size: contain;
+  }
+  .carousel__card-list,
+  .carousel__card > img {
+    width: 250px;
+    height: 250px;
+  }
+  .carousel__container {
+    width: 95%;
+  }
 }
 /* ========= Game ========== */
 .card-front-back {
