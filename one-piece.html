@@ -18,7 +18,7 @@
     <main>
       <!-- ========= Carousel ========== -->
       <section class="carousel-section">
-        <div class="carousel__title">
+        <div class="section-title">
           <h2>The Straw Hat Crew</h2>
           <img src="images/jolly-roger.png" alt="One Piece jolly roger image" />
         </div>
@@ -112,22 +112,36 @@
       </section>
 
       <!-- ========= Game ========== -->
-      <div class="card-front-back" id="card-front-back" onClick="handleClick()">
-        <!-- ===== front ===== -->
-        <div class="card --front">
-          <div class="card-game">
-            <img
-              src="images/Luffy-front.png"
-              alt="character's image without bounty" />
+      <section class="card-game">
+        <div class="section-title">
+          <h2>Bounty Game</h2>
+          <img src="images/jolly-roger.png" alt="One Piece jolly roger image" />
+        </div>
+
+        <p id="character1" onclick="compareBounty(0)">Character 1</p>
+        x
+        <p id="character2" onclick="compareBounty(1)">Character 2</p>
+        <p>Score:</p>
+        <span class="score"></span>
+
+        <!-- ######## Flip Card section ######## -->
+        <div class="card-game__front-back" onClick="flipCard()">
+          <!-- ===== front ===== -->
+          <div class="card --front">
+            <div class="card-image">
+              <img
+                src="images/Luffy-front.png"
+                alt="character's image without bounty" />
+            </div>
+          </div>
+          <!-- ===== back ===== -->
+          <div class="card --back">
+            <div class="card-image">
+              <img src="images/Luffy.png" alt="character's image with bounty" />
+            </div>
           </div>
         </div>
-        <!-- ===== back ===== -->
-        <div class="card --back">
-          <div class="card-game">
-            <img src="images/Luffy.png" alt="character's image with bounty" />
-          </div>
-        </div>
-      </div>
+      </section>
     </main>
   </body>
 </html>

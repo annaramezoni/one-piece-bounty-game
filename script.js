@@ -66,7 +66,6 @@ function createButtonEl(index) {
   characterButton.addEventListener("click", () => {
     displayCharacter(index);
   });
-  console.log(characterButton);
 }
 
 characterName.forEach((character, index) => {
@@ -78,11 +77,68 @@ function displayCharacter(index) {
   cardList[index].style.display = "block";
 }
 
-// const cardFrontBack = document.querySelector(".card-front-back");
-// function handleClick() {
-//   if (cardFrontBack.classList.contains("--active")) {
-//     cardFrontBack.classList.remove("--active");
-//   } else {
-//     cardFrontBack.classList.add("--active");
-//   }
-// }
+// ======== Game ======== //
+
+const charactersArray = [
+  {
+    name: "Luffy",
+    bounty: 3_000_000_000,
+    image: "images/Luffy-front.png",
+  },
+  { name: "Zoro", bounty: 1_111_000_000 },
+  { name: "Sanji", bounty: 1_032_000_000 },
+  { name: "Nami", bounty: 366_000_000 },
+  { name: "Usopp", bounty: 500_000_000 },
+  { name: "Chopper", bounty: 1_000 },
+  { name: "Robin", bounty: 930_000_000 },
+  { name: "Franky", bounty: 394_000_000 },
+  { name: "Brook", bounty: 383_000_000 },
+  { name: "Jinbe", bounty: 1_100_000_000 },
+];
+
+console.log(charactersArray);
+let score = 0;
+let randomized = [];
+let round = 0;
+
+// compare bounties
+
+function compareBounty(index) {
+  let sliced = charactersArray.slice(0, 2);
+  if (index === 0) {
+    if (sliced[0].bounty > sliced[1].bounty) {
+      score++;
+      alert(
+        `well done, ${sliced[0].name}'s bounty is higher than ${sliced[1].name}'s!`,
+      );
+    } else {
+      alert(
+        `${sliced[0].name}'s bounty is NOT higher than ${sliced[1].name}'s!`,
+      );
+    }
+  } else {
+    if (sliced[1].bounty > sliced[0].bounty) {
+      score++;
+      alert(
+        `well done, ${sliced[1].name}'s bounty is higher than ${sliced[0].name}'s!`,
+      );
+    } else {
+      alert(
+        `${sliced[1].name}'s bounty is NOT higher than ${sliced[0].name}'s!`,
+      );
+    }
+  }
+}
+
+// === Flip card === //
+
+const cardFrontBack = document.querySelector(".card-game__front-back");
+function flipCard() {
+  if (cardFrontBack.classList.contains("--active")) {
+    cardFrontBack.classList.remove("--active");
+  } else {
+    cardFrontBack.classList.add("--active");
+  }
+}
+
+//math random -> get an extra array to track the indexes and pull characters from the original arrays
