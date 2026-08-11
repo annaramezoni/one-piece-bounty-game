@@ -78,33 +78,137 @@ function displayCharacter(index) {
 }
 
 // ======== Game ======== //
-
+const cardFrontBack = document.querySelector(".card-game__front-back");
 const charactersArray = [
   {
     name: "Luffy",
     bounty: 3_000_000_000,
-    image: "images/Luffy-front.png",
+    imageFront: "images/Luffy-front.png",
+    imageBack: "images/Luffy-back.png",
   },
-  { name: "Zoro", bounty: 1_111_000_000 },
-  { name: "Sanji", bounty: 1_032_000_000 },
-  { name: "Nami", bounty: 366_000_000 },
-  { name: "Usopp", bounty: 500_000_000 },
-  { name: "Chopper", bounty: 1_000 },
-  { name: "Robin", bounty: 930_000_000 },
-  { name: "Franky", bounty: 394_000_000 },
-  { name: "Brook", bounty: 383_000_000 },
-  { name: "Jinbe", bounty: 1_100_000_000 },
+  {
+    name: "Zoro",
+    bounty: 1_111_000_000,
+    imageFront: "images/Zoro-front.png",
+    imageBack: "images/Zoro-back.png",
+  },
+  {
+    name: "Sanji",
+    bounty: 1_032_000_000,
+    imageFront: "images/Sanji-front.png",
+    imageBack: "images/Sanji-back.png",
+  },
+  {
+    name: "Nami",
+    bounty: 366_000_000,
+    imageFront: "images/Nami-front.png",
+    imageBack: "images/Nami-back.png",
+  },
+  {
+    name: "Usopp",
+    bounty: 500_000_000,
+    imageFront: "images/Usopp-front.png",
+    imageBack: "images/Usopp-back.png",
+  },
+  {
+    name: "Chopper",
+    bounty: 1_000,
+    imageFront: "images/Chopper-front.png",
+    imageBack: "images/Chopper-back.png",
+  },
+  {
+    name: "Robin",
+    bounty: 930_000_000,
+    imageFront: "images/Nico-Robin-front.png",
+    imageBack: "images/Nico-Robin-back.png",
+  },
+  {
+    name: "Franky",
+    bounty: 394_000_000,
+    imageFront: "images/Franky-front.png",
+    imageBack: "images/Franky-back.png",
+  },
+  {
+    name: "Brook",
+    bounty: 383_000_000,
+    imageFront: "images/Brook-front.png",
+    imageBack: "images/Brook-back.png",
+  },
+  {
+    name: "Jinbe",
+    bounty: 1_100_000_000,
+    imageFront: "images/Jinbe-front.png",
+    imageBack: "images/Jinbe-back.png",
+  },
 ];
 
-console.log(charactersArray);
 let score = 0;
 let randomized = [];
 let round = 0;
+const userScore = document.getElementById("score");
+
+//create the image - object array
+function createImageFrontBack(character) {
+  // front and back
+  const cardFrontBack = document.createElement("div");
+  document.getElementById("card-game").appendChild(cardFrontBack);
+  cardFrontBack.classList.add("card-game__front-back");
+  cardFrontBack.style.display = "none";
+
+  //front
+  const cardFront = document.createElement("div");
+  const cardImageFront = document.createElement("div");
+  const imageFront = document.createElement("img");
+
+  cardFrontBack.appendChild(cardFront);
+  cardFront.appendChild(cardImageFront);
+  cardImageFront.appendChild(imageFront);
+  cardFront.classList.add("card", "--front");
+  cardImageFront.classList.add("card-image");
+  imageFront.setAttribute("src", character.imageFront);
+
+  //back
+  const cardBack = document.createElement("div");
+  const cardImageBack = document.createElement("div");
+  const imageBack = document.createElement("img");
+
+  cardFrontBack.appendChild(cardBack);
+  cardBack.appendChild(cardImageBack);
+  cardImageBack.appendChild(imageBack);
+  cardBack.classList.add("card", "--back");
+  cardImageBack.classList.add("card-image");
+  imageBack.setAttribute("src", character.imageBack);
+  console.log(cardFrontBack);
+}
+
+charactersArray.forEach((character) => {
+  createImageFrontBack(character);
+});
+
+//shuffle array
+function shuffle(arr) {
+  // Create a shallow copy to prevent mutating the original array
+  const shuffled = [...arr];
+
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    // Pick a random index from 0 to i
+    const j = Math.floor(Math.random() * (i + 1));
+
+    // Swap elements using destructuring assignment
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return shuffled;
+}
+
+const shuffledArray = shuffle(charactersArray);
 
 // compare bounties
 
 function compareBounty(index) {
-  let sliced = charactersArray.slice(0, 2);
+  let sliced = shuffledArray.slice(round, round + 2);
+  //two need to get display block - cardFrontBack
+
   if (index === 0) {
     if (sliced[0].bounty > sliced[1].bounty) {
       score++;
@@ -128,11 +232,13 @@ function compareBounty(index) {
       );
     }
   }
+  round += 2;
+  userScore.textContent = score;
 }
-
+// display image instead of character 1
+// display only two images when inside the function compare bounty
 // === Flip card === //
 
-const cardFrontBack = document.querySelector(".card-game__front-back");
 function flipCard() {
   if (cardFrontBack.classList.contains("--active")) {
     cardFrontBack.classList.remove("--active");
@@ -142,3 +248,19 @@ function flipCard() {
 }
 
 //math random -> get an extra array to track the indexes and pull characters from the original arrays
+//const charactersArray = [
+//   {
+//     name: "Luffy",
+//     bounty: 3_000_000_000,
+//     imageFront: "images/Luffy-front.png",
+//   },
+//   { name: "Zoro", bounty: 1_111_000_000 },
+//   { name: "Sanji", bounty: 1_032_000_000 },
+//   { name: "Nami", bounty: 366_000_000 },
+//   { name: "Usopp", bounty: 500_000_000 },
+//   { name: "Chopper", bounty: 1_000 },
+//   { name: "Robin", bounty: 930_000_000 },
+//   { name: "Franky", bounty: 394_000_000 },
+//   { name: "Brook", bounty: 383_000_000 },
+//   { name: "Jinbe", bounty: 1_100_000_000 },
+// ];

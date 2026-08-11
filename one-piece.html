@@ -8,7 +8,8 @@
     <script defer src="script.js"></script>
     <link
       rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
   </head>
   <body>
     <header class="header">
@@ -33,73 +34,85 @@
               <img
                 class="carousel__card-image"
                 src="images/Luffy-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Zoro-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Sanji-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Nami-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Usopp-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Chopper-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Nico-Robin-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Brook-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Franky-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Jinbe-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Going-Merry-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
             <li class="carousel__card">
               <img
                 class="carousel__card-image"
                 src="images/Sunny-card.png"
-                alt="One piece character descriptive card" />
+                alt="One piece character descriptive card"
+              />
             </li>
           </ul>
           <button class="carousel__button --right" id="next-button">
@@ -112,7 +125,7 @@
       </section>
 
       <!-- ========= Game ========== -->
-      <section class="card-game">
+      <section class="card-game" id="card-game">
         <div class="section-title">
           <h2>Bounty Game</h2>
           <img src="images/jolly-roger.png" alt="One Piece jolly roger image" />
@@ -122,24 +135,29 @@
         x
         <p id="character2" onclick="compareBounty(1)">Character 2</p>
         <p>Score:</p>
-        <span class="score"></span>
+        <span id="score" class="score"></span>
 
         <!-- ######## Flip Card section ######## -->
-        <div class="card-game__front-back" onClick="flipCard()">
+        <div
+          class="card-game__front-back"
+          id="card-game__front-back"
+          onClick="flipCard()"
+        >
           <!-- ===== front ===== -->
-          <div class="card --front">
+          <!-- <div class="card --front">
             <div class="card-image">
               <img
                 src="images/Luffy-front.png"
-                alt="character's image without bounty" />
+                alt="character's image without bounty"
+              />
             </div>
-          </div>
+          </div> -->
           <!-- ===== back ===== -->
-          <div class="card --back">
+          <!-- <div class="card --back">
             <div class="card-image">
               <img src="images/Luffy.png" alt="character's image with bounty" />
             </div>
-          </div>
+          </div> -->
         </div>
       </section>
     </main>

@@ -29,6 +29,9 @@ body {
   background-position: center;
   background-size: unset;
 }
+main {
+  padding: 20px;
+}
 
 .section-title {
   display: flex;
