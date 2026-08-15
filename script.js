@@ -78,7 +78,7 @@ function displayCharacter(index) {
 }
 
 // ======== Game ======== //
-const cardFrontBack = document.querySelector(".card-game__front-back");
+//const cardFrontBack = document.querySelector(".card-game__front-back");
 const charactersArray = [
   {
     name: "Luffy",
@@ -148,12 +148,12 @@ let round = 0;
 const userScore = document.getElementById("score");
 
 //create the image - object array
-function createImageFrontBack(character) {
+function createImageFrontBack(arrImageFront, arrImageBack, i) {
   // front and back
   const cardFrontBack = document.createElement("div");
   document.getElementById("card-game").appendChild(cardFrontBack);
   cardFrontBack.classList.add("card-game__front-back");
-  cardFrontBack.style.display = "none";
+  cardFrontBack.setAttribute("onclick", `compareBounty(${i})`);
 
   //front
   const cardFront = document.createElement("div");
@@ -165,7 +165,7 @@ function createImageFrontBack(character) {
   cardImageFront.appendChild(imageFront);
   cardFront.classList.add("card", "--front");
   cardImageFront.classList.add("card-image");
-  imageFront.setAttribute("src", character.imageFront);
+  imageFront.setAttribute("src", arrImageFront);
 
   //back
   const cardBack = document.createElement("div");
@@ -177,13 +177,9 @@ function createImageFrontBack(character) {
   cardImageBack.appendChild(imageBack);
   cardBack.classList.add("card", "--back");
   cardImageBack.classList.add("card-image");
-  imageBack.setAttribute("src", character.imageBack);
+  imageBack.setAttribute("src", arrImageBack);
   console.log(cardFrontBack);
 }
-
-charactersArray.forEach((character) => {
-  createImageFrontBack(character);
-});
 
 //shuffle array
 function shuffle(arr) {
@@ -202,13 +198,12 @@ function shuffle(arr) {
 }
 
 const shuffledArray = shuffle(charactersArray);
-
-// compare bounties
+let sliced = shuffledArray.slice(round, round + 2);
+sliced.forEach((character, index) => {
+  createImageFrontBack(character.imageFront, character.imageBack, index);
+});
 
 function compareBounty(index) {
-  let sliced = shuffledArray.slice(round, round + 2);
-  //two need to get display block - cardFrontBack
-
   if (index === 0) {
     if (sliced[0].bounty > sliced[1].bounty) {
       score++;
@@ -235,8 +230,6 @@ function compareBounty(index) {
   round += 2;
   userScore.textContent = score;
 }
-// display image instead of character 1
-// display only two images when inside the function compare bounty
 // === Flip card === //
 
 function flipCard() {
@@ -246,21 +239,3 @@ function flipCard() {
     cardFrontBack.classList.add("--active");
   }
 }
-
-//math random -> get an extra array to track the indexes and pull characters from the original arrays
-//const charactersArray = [
-//   {
-//     name: "Luffy",
-//     bounty: 3_000_000_000,
-//     imageFront: "images/Luffy-front.png",
-//   },
-//   { name: "Zoro", bounty: 1_111_000_000 },
-//   { name: "Sanji", bounty: 1_032_000_000 },
-//   { name: "Nami", bounty: 366_000_000 },
-//   { name: "Usopp", bounty: 500_000_000 },
-//   { name: "Chopper", bounty: 1_000 },
-//   { name: "Robin", bounty: 930_000_000 },
-//   { name: "Franky", bounty: 394_000_000 },
-//   { name: "Brook", bounty: 383_000_000 },
-//   { name: "Jinbe", bounty: 1_100_000_000 },
-// ];
