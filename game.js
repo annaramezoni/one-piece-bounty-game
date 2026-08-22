@@ -71,6 +71,9 @@ function hideSlice() {
 }
 
 function compareBounty(index) {
+  document
+    .querySelectorAll(".card-game__front-back")
+    .forEach((card) => card.classList.add("--active"));
   if (index === 0) {
     if (sliced[0].bounty > sliced[1].bounty) {
       score++;
@@ -100,14 +103,4 @@ function compareBounty(index) {
   hideSlice();
   sliced = shuffledArray.slice(round, round + 2);
   getTwoCards(sliced);
-}
-
-// === Flip card === //
-
-function flipCard() {
-  if (cardFrontBack.classList.contains("--active")) {
-    cardFrontBack.classList.remove("--active");
-  } else {
-    cardFrontBack.classList.add("--active");
-  }
 }
