@@ -5,11 +5,15 @@ let randomized = [];
 let round = 0;
 const userScore = document.getElementById("score");
 
+const shuffled = shuffleArray(charactersArray);
+
+let sliced = shuffled.slice(round, round + 2);
+
 //shuffle array
 
-const shuffledArray = () => {
+function shuffleArray(array) {
   // Create a shallow copy to prevent mutating the original array
-  const shuffled = [...charactersArray];
+  const shuffled = [...array];
 
   for (let i = shuffled.length - 1; i > 0; i--) {
     // Pick a random index from 0 to i
@@ -20,9 +24,7 @@ const shuffledArray = () => {
   }
 
   return shuffled;
-};
-
-let sliced = shuffledArray().slice(round, round + 2);
+}
 
 //create the image - object array
 function createImageFrontBack(arrImageFront, arrImageBack, i) {
@@ -105,7 +107,7 @@ function compareBounty(index) {
     userScore.textContent = score;
 
     hideSlice();
-    sliced = shuffledArray().slice(round, round + 2);
+    sliced = shuffled.slice(round, round + 2);
     getTwoCards(sliced);
   }, 2000);
 }
