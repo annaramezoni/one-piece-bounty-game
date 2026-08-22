@@ -49,6 +49,7 @@ function createImageFrontBack(arrImageFront, arrImageBack, i) {
   const cardImageBack = document.createElement("div");
   const imageBack = document.createElement("img");
 
+  document.getElementById("cards-container").appendChild(cardFrontBack);
   cardFrontBack.appendChild(cardBack);
   cardBack.appendChild(cardImageBack);
   cardImageBack.appendChild(imageBack);
@@ -98,9 +99,13 @@ function compareBounty(index) {
     }
   }
 
-  round += 2;
-  userScore.textContent = score;
-  hideSlice();
-  sliced = shuffledArray.slice(round, round + 2);
-  getTwoCards(sliced);
+  // to do: perform this when next is clicked without the timeout:
+  setTimeout(() => {
+    round += 2;
+    userScore.textContent = score;
+
+    hideSlice();
+    sliced = shuffledArray().slice(round, round + 2);
+    getTwoCards(sliced);
+  }, 2000);
 }

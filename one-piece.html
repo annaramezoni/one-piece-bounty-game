@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="game.css" />
     <script defer src="script.js"></script>
     <script defer src="data.js"></script>
     <script defer src="game.js"></script>
@@ -135,31 +136,13 @@
         <!--  -->
         <!-- <img id="character1" onclick="compareBounty(0)" /> x
         <img id="character2" onclick="compareBounty(1)" /> -->
-        <p>Score:</p>
-        <span id="score" class="score"></span>
+        <div class="score-container">
+          <p>Score:</p>
+          <span id="score" class="score"></span>
+        </div>
 
         <!-- ######## Flip Card section ######## -->
-        <div
-          class="card-game__front-back"
-          id="card-game__front-back"
-          onClick="flipCard()"
-        >
-          <!-- ===== front ===== -->
-          <!-- <div class="card --front">
-            <div class="card-image">
-              <img
-                src="images/Luffy-front.png"
-                alt="character's image without bounty"
-              />
-            </div>
-          </div> -->
-          <!-- ===== back ===== -->
-          <!-- <div class="card --back">
-            <div class="card-image">
-              <img src="images/Luffy.png" alt="character's image with bounty" />
-            </div>
-          </div> -->
-        </div>
+        <div id="cards-container" class="cards-container"></div>
       </section>
     </main>
   </body>
