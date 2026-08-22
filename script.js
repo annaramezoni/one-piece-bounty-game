@@ -198,10 +198,20 @@ function shuffle(arr) {
 }
 
 const shuffledArray = shuffle(charactersArray);
+
 let sliced = shuffledArray.slice(round, round + 2);
-sliced.forEach((character, index) => {
-  createImageFrontBack(character.imageFront, character.imageBack, index);
-});
+function hideSlice() {
+  const div = document.querySelectorAll(".card-game__front-back");
+  div.forEach((cardList) => (cardList.style.display = "none"));
+}
+
+function getTwoCards(cards) {
+  cards.forEach((character, index) => {
+    createImageFrontBack(character.imageFront, character.imageBack, index);
+  });
+}
+
+getTwoCards(sliced);
 
 function compareBounty(index) {
   if (index === 0) {
@@ -229,6 +239,9 @@ function compareBounty(index) {
   }
   round += 2;
   userScore.textContent = score;
+  hideSlice();
+  sliced = shuffledArray.slice(round, round + 2);
+  getTwoCards(sliced);
 }
 // === Flip card === //
 
